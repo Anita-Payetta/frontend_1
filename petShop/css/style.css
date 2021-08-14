@@ -1,0 +1,527 @@
+:root {
+    --primary-color: #F0A83E;
+    --secondary-color: #3C2313;
+    --tertiary-color: #8A8787;
+    --aside-background: #222222;
+    --contrast-text: #FFFFFF;
+    --article-background: #FBFAF6;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+}
+
+body {
+    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--secondary-color);
+    min-width: 320px;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+/*==========================
+        HEADER
+============================*/
+
+/*      ASIDE
+----------------------------*/
+
+.info-bar {
+    display: none;
+}
+
+.info-bar-news {
+    font-weight: 400;
+    font-size: 10px;
+    color: var(--contrast-text);
+}
+
+/*      MAIN HEADER
+----------------------------*/
+/*ponfo flex wrap en el header porque así cuando el viewport llega a 582px no se rompe y baja el nav antes de pasar al modo hamburguesa*/
+.main-header {
+    background-color: var(--primary-color);
+    color: var(--contrast-text);
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;    
+}
+
+/*      MAIN NAV
+----------------------------*/
+
+.main-nav a {
+    color: var(--contrast-text);
+    text-decoration: none;
+}
+
+/*con esta clase le doy estilo al menú tipo hamburguesa*/
+.fas.fa-bars {
+    font-size: 20px;
+}
+
+.main-header ul {
+    display: none;
+}
+
+.nav-menu-item {
+    font-size: 13px;
+    list-style: none;
+    padding: 5px 5px 10px 20px;
+    position: relative;
+}
+
+.nav-menu-item:active, .nav-menu-item:active {
+    background-color: #999999;
+    border: solid 2px var(--primary-color);
+    border-radius: 5px;
+}
+
+.nav-menu-item::after {
+    content: ' ';
+    background-image: url(../img/pawprint4.svg);
+    background-size: cover;
+    width: 17px;
+    height: 16px;
+    position: absolute;
+    left: 0;
+}
+
+/*le digo que cuando hace foco en el anchor que está contenido en main-header => su hermano ul tiene las propiedades detalladas*/
+.main-header a:focus + ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    background-color: var(--tertiary-color);
+    border-radius: 5%;
+    padding: 15px;
+}
+
+/*cuando llega a 480px => se realizan las modificaciones (es porque es mobile first)*/
+@media (min-width: 480px) {
+    .info-bar {
+        font-size: 10px;
+        color: var(--contrast-text);
+        background-color: var(--aside-background);
+        padding: 3px 50px;
+        display: flex;
+        justify-content: space-between;    
+    }
+
+    .page-configuration select {
+        font-size: 10px;
+        font-weight: normal;
+        color: var(--contrast-text);
+        background-color: var(--aside-background);
+        border: none;
+    }
+    
+    /*en este tamaño de viewport saco la hambuerguesa y paso al menú desplegado*/
+    .fas.fa-bars {
+        display: none;
+    }
+
+    .main-header ul {
+        display: flex;
+    }
+
+    .nav-menu-item {
+        margin-left: 15px;
+    }
+
+}
+
+/*==========================
+           MAIN
+============================*/
+
+/*         COVER
+----------------------------*/
+.cover {
+    height: 409px;
+    padding: 20px;
+    background: url('../img/bowl_and_pet_daities_on_green_background.png');
+    background-repeat: no-repeat;
+    background-position-x: -40px;
+}
+
+/*contenedor realizado para el contenido puesto en la portada*/
+.cover-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-message {
+    background: #FFFFFF;
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+    padding: 12px 38px;
+    border-radius: 5px;
+}
+
+.cover-offer {
+    align-self: flex-end;
+    margin: 12px;
+}
+
+.cover-btn {
+    padding: 15px 23px;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    background: var(--primary-color);
+    color: var(--contrast-text);
+    align-self: flex-end;
+    border: 0;
+    border-radius: 5px;
+    margin: 0 20px;
+}
+
+/*      CONTENT
+----------------------------*/
+.content-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-title-decoration-container {
+    margin-top: 20px;
+}
+
+.main-title-decoration-container img {
+    width: 80px;
+}
+
+h1 {
+    font-size: 39px;
+    text-align: center;
+    padding: 0 20px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.content-filter {
+    margin-top: 50px;
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.content-filter li {
+    padding: 0 30px;
+    position: relative;
+}
+
+.content-filter li::before {
+    content: "-";
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    top: 0;
+    left: -30px;
+    text-align: center;
+}
+
+.content-filter li:first-child::before {
+    content: " ";
+}
+
+.content-filter a {
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--tertiary-color);
+}
+
+/*      PRODUCT CARDS
+----------------------------*/
+.products {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product {
+    background: var(--article-background);
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    font-size: 13px;
+    padding: 7px;
+    text-align: center;
+}
+
+.product-image-container img {
+    width: 240px;
+}
+
+.product-title {
+    padding: 2px;
+}
+
+.product-price {
+    color: var(--primary-color);
+    padding: 2px;
+}
+
+/*      CONTACT FORM
+----------------------------*/
+.contact-form-container {
+    margin: 30px auto 0 auto;
+    text-align: center;
+    width: 100%;
+    max-width: 410px;
+}
+
+.contact-form-title {
+    font-size: 39px;
+    font-weight: 500;
+}
+
+.contact-form-fields {
+    margin: 12px auto 0 auto;
+    text-align: center;
+    max-width: 300px;
+}
+
+.contact-form-fields input {
+    width: 100%;
+    font-size: 9px;
+    background: var(--secondary-color);
+    color: var(--tertiary-color);
+    margin: 3px;
+    padding: 15px 5px;
+    border-radius: 15px;
+    border: 0;
+}
+
+.contact-form-actions {
+    display: flex;
+    justify-content: stretch;
+    padding: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.contact-form-actions button {
+    background: var(--primary-color);
+    color: var(--contrast-text);
+    border: 0;
+    font-size: 16px;
+    padding: 15px 30px;
+    border-radius: 25px;
+    max-width: 50%;
+    flex-grow: 1;
+    margin: 0 5px;
+}
+
+.contact-form-reset {
+    background-color: var(--tertiary-color);
+}
+
+/*cambios aplicables al MAIN cuando viewport width > 480px*/
+@media (min-width: 480px) {
+    .cover {
+        background-position-x: 0;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .cover-wrapper {
+        justify-content: center;
+    }
+    .cover-message {
+        font-size: 28px;
+        padding: 12px;
+        width: auto;
+    }
+    .cover-offer,
+    .cover-btn {
+        align-self: auto;
+    }
+    .contact-form-fields input {
+        width: 100%;
+        font-size: 9px;
+        background: var(--secondary-color);
+        color: var(--contrast-text);
+        padding: 15px 10px;
+    }
+}
+
+/*==========================
+         FOOTER
+============================*/
+
+footer {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--contrast-text);
+}
+
+/*      FOOTER ASIDE
+----------------------------*/
+.newsletter-subscribe {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter-subcribe-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;    
+}
+
+.newsletter-subscribe div img {
+    width: 47px;
+    height: 50px;
+    padding: 7px;
+    
+}
+
+.newsletter-subscribe form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter-subscribe form input {
+    width: 220px;
+    height: 35px;
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 10px;
+    margin: 10px;
+    color: var(--tertiary-color);
+    border: none;
+    border-radius: 10px;
+
+}
+
+.newsletter-subscribe form button {
+    background-color: var(--secondary-color);
+    color: var(--contrast-text);
+    font-size: 14px;
+    padding: 10px 15px;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+}
+
+/*      MAIN FOOTER
+----------------------------*/
+.main-footer {
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*pongo el logo en un contenedor para poder usar flex*/
+.footer-logo-container {
+    margin: 15px;
+}
+
+/*      COMPANY INFO
+----------------------------*/
+.footer-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 50px;
+}
+
+.info-item {
+    position: relative;
+    padding-left: 80px;
+    height: 65px;
+    margin: 10px;
+}
+
+/*seudoelemento ícono con círculo gris detrás de id = direction, declaro uno con los estilos generales y luego solo agrego el contenido(ícono) para cada uno de los campos con su correspondiente id*/
+.info-item::before {
+    font-family: "Font Awesome 5 Free";
+    background-color: var(--tertiary-color);
+    font-size: 30px;
+    padding: 10px;
+    height: 41px;
+    width: 41px;
+    text-align: center;
+    border: solid 2px #786960;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#address::before {
+    content: '\f3c5';
+}
+
+#phone-number::before {
+    content: '\f879';
+}
+
+#email::before {
+    content: '\f0e0';
+}
+
+/*uso description list para cada uno de los campos*/
+.info-item dd {
+    font-size: 13px;
+    font-weight: normal;
+    color: var(--tertiary-color);
+}
+
+/*       COPYRIGHT
+----------------------------*/
+.copyright {
+    background-color: var(--aside-background);
+    font-size: 10px;
+    font-weight: normal;
+    text-align: center;
+}
+
+/*especificaciones de media query para el footer*/
+@media (min-width: 480px) {
+    .newsletter-subscribe {
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    .newsletter-subscribe form input {
+        width: 260px;
+    }
+
+    .newsletter-subscribe form button {
+        font-size: 15px;
+    }
+
+    .main-footer {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        padding: 25px 50px;
+    }
+    
+    .footer-info-container {
+        padding: 0;
+    }
+}
