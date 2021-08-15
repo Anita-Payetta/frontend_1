@@ -1,0 +1,83 @@
+/*declaro colores generales para la página*/
+:root {
+    --primary-color: #FFFFFF;
+    --secondary-color: #73CA3F;
+    --tertiary-color: #00009B;
+    --background-color: #000000;
+}
+/*cargo fuente desde ruta local*/
+@font-face {
+    font-family: pixelscreenfontlight;
+    src: url(../../fonts/pixelscreenfontlight.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;    
+}
+
+body{
+    font-family: pixelscreenfontlight;
+    font-size: 20px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+/*==========================
+           HEADER
+============================*/
+.portfolio-header {
+    margin-bottom: 4px;
+    margin-top: 4px;
+    text-align: center;
+}
+/*definición de estilos de hr, hace una linea azul de 2px cuyo borde es punteado y no está rellena*/
+.portfolio-header-border{
+    border: 2px dashed var(--tertiary-color);
+    padding: 5px 0;
+}
+.page-title {
+    font-size: 40px;
+    padding: 20px;
+}
+
+/*==========================
+           MAIN
+============================*/
+
+/*      PROYECT LINKS
+----------------------------*/
+
+.proyects{
+    padding: 60px;
+    height: calc(100vh - 130px);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/*genero un pseudo elemento antes que es otra caja contenedora 2px más pequeña realizado mediante propiedades de posicionamiento absolut para poder hacer borde doble*/
+.proyect-link::before{
+    content: " ";
+    color: var(--primary-color);
+    border: dashed 2px var(--secondary-color);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+}
+
+.proyect-link{
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+    width: 240px;
+    height: 120px;
+    border: dashed 2px var(--secondary-color);
+}
