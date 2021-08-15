@@ -51,7 +51,7 @@ body{
 
 .proyects{
     padding: 60px;
-    height: calc(100vh - 130px);
+    height: calc(100vh - 138px);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
