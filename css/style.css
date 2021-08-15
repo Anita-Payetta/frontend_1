@@ -1,0 +1,108 @@
+/*declaro colores generales para la página*/
+:root {
+    --primary-color: #FFFFFF;
+    --secondary-color: #73CA3F;
+    --tertiary-color: #00009B;
+    --background-color: #000000;
+}
+/*cargo fuente desde ruta local*/
+@font-face {
+    font-family: pixelscreenfontlight;
+    src: url(../fonts/pixelscreenfontlight.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;    
+}
+
+body{
+    font-family: pixelscreenfontlight;
+    font-size: 20px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+/*==========================
+           HEADER
+============================*/
+.portfolio-header {
+    margin-bottom: 4px;
+    margin-top: 4px;
+    text-align: center;
+}
+/*definición de estilos de hr, hace una linea azul de 2px cuyo borde es punteado y no está rellena*/
+.portfolio-header-border{
+    border: 2px dashed var(--tertiary-color);
+    padding: 5px 0;
+}
+.page-title {
+    font-size: 40px;
+    padding: 20px;
+}
+
+/*==========================
+           MAIN
+============================*/
+
+/*PADLOCK AND ACCESS MANAGEMENT
+-------------------------------------*/
+.access-manager{
+    margin: 80px 0 0;
+}
+/*declaro ancho para que solo funcione cuando toco el candado*/
+.padlock-wrapper {
+    display: block;
+    position: relative;
+    width: 56px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.padlock-wrapper img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/*declaro transición al primer hijo (cierre candado) y bajo 12px la posición final para que parezca cerrado*/
+.padlock-wrapper :first-child {
+    top: 12px;
+    transition: all 2s ease-out;
+}
+
+p.access{
+    text-align: center;
+}
+
+.access.msg2 {
+    visibility: hidden;
+    padding: 60px;
+}
+
+/*le digo que cuando tenga foco en algún elemento del padre el mensaje 2 quede visible*/
+.access-manager:focus-within .access.msg2{
+    visibility: visible;
+}
+
+/*cuando hago foco en el candado, el primer hijo (la traba) se desplaza hacia arriba 12px*/
+.padlock-wrapper:focus :first-child{
+    transform: translateY(-12px);
+}
+
+.access.msg2 a{
+    color: var(--tertiary-color);
+}
+
+.access.msg2 a:visited{
+    color: var(--tertiary-color);
+}
+
+.access.msg1{
+    padding: 0;
+}
+
+/*cuando cualquier elemento de la section tiene foco en él => no se muestra el mensaje 1*/
+.access-manager:focus-within + .access.msg1{
+    visibility: hidden;
+}
